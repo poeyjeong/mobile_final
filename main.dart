@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:group_assign/models/post_model.dart';
+import 'package:group_assign/view/app_bar.dart';
 import 'package:group_assign/view/history.dart';
 import 'package:group_assign/view/home.dart';
 import 'package:group_assign/view/post.dart';
@@ -17,24 +18,42 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Anonymous Posts App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       initialRoute: '/',
+      builder: (context, child) {
+        return Scaffold(
+          appBar: const PreferredSize(
+            preferredSize: Size.fromHeight(56), // Set the height of the app bar
+            child: MyAppBar(), // ใช้ MyAppBar ในทุกหน้า
+          ),
+          body: child,
+        );
+      },
       routes: {
         '/': (context) => const HomePage(),
         '/post': (context) => const NewPostPage(),
-        '/postdetails': (context) => PostDetailsPage(),
-        // '/history': (context) => const HistoryPage(posts: _posts),
+        '/postdetails': (context) {
+          final args = ModalRoute.of(context)!.settings.arguments
+              as Map<String, dynamic>;
+          final post = args['post'] as Post;
+          return Scaffold(
+            body: PostDetailsPage(post: post),
+          );
+        },
       },
       onGenerateRoute: (settings) {
         if (settings.name == '/history') {
           final args = settings.arguments as List<Post>;
           return MaterialPageRoute(
-            builder: (context) => HistoryPage(posts: args),
+            builder: (context) => Scaffold(
+              appBar:
+                  const MyAppBar(), // Use MyAppBar as the app bar for history page
+              body: HistoryPage(posts: args),
+              bottomNavigationBar:
+                  const MyBottomNavigationBar(), // Show MyBottomNavigationBar on history page
+            ),
           );
         }
-        return null; // Return null if the route is not found
+        return null;
       },
     );
   }
