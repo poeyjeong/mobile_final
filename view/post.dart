@@ -6,6 +6,6 @@ class NewPostPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const PostEditorPage(); // Use the correct class name here
+    return const PostEditorPage();
   }
 }
