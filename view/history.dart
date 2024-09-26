@@ -1,7 +1,9 @@
+// history.dart
 import 'package:flutter/material.dart';
-import 'package:mobile_final/models/post_model.dart';
-import 'package:mobile_final/widgets/post_list.dart';
 import 'package:http/http.dart' as http;
+import 'package:mobile_final/models/post_model.dart';
+import 'package:mobile_final/view/app_bar.dart';
+import 'package:mobile_final/widgets/post_list.dart';
 import 'package:mobile_final/models/config.dart';
 
 class HistoryPage extends StatefulWidget {
@@ -28,7 +30,7 @@ class _HistoryPageState extends State<HistoryPage> {
     if (response.statusCode == 200) {
       final List<Post> posts = postsFromJson(response.body);
       setState(() {
-        _posts = posts;
+        _posts = posts.where((post) => post.author == 'plum').toList();
         _isLoading = false;
       });
     } else {
@@ -42,12 +44,12 @@ class _HistoryPageState extends State<HistoryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Your Posts"),
-      ),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
           : PostList(posts: _posts, showOnlyPlumPosts: true),
+      bottomNavigationBar: MyBottomNavigationBar(
+        currentIndex: 1,
+      ),
     );
   }
 }
