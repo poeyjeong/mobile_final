@@ -1,3 +1,4 @@
+// main.dart
 import 'package:flutter/material.dart';
 import 'package:mobile_final/models/post_model.dart';
 import 'package:mobile_final/view/app_bar.dart';
@@ -40,10 +41,10 @@ class MyApp extends StatelessWidget {
           );
         },
       },
+      // main.dart
       onGenerateRoute: (settings) {
         if (settings.name == '/history') {
-          return MaterialPageRoute(
-              builder: (context) => const HistoryPage(posts: []));
+          return MaterialPageRoute(builder: (context) => const HistoryPage());
         }
         return null;
       },
