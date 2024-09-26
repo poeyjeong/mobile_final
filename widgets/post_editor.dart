@@ -1,19 +1,19 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:group_assign/models/config.dart';
+import 'package:mobile_final/models/config.dart';
 import 'package:http/http.dart' as http;
-import 'package:group_assign/models/post_model.dart';
+import 'package:mobile_final/models/post_model.dart';
 
 class PostEditorPage extends StatefulWidget {
-  const PostEditorPage({super.key});
+  const PostEditorPage({super.key, required post});
 
   @override
   _PostEditorPageState createState() => _PostEditorPageState();
 }
 
 class _PostEditorPageState extends State<PostEditorPage> {
-  List<Post> _posts = []; // Assume you have some posts to edit
+  final List<Post> _posts = []; // Assume you have some posts to edit
   // Add your editing logic here
 
   Future<void> _savePosts() async {
@@ -49,4 +49,3 @@ class _PostEditorPageState extends State<PostEditorPage> {
     );
   }
 }
-
