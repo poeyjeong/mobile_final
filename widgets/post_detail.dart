@@ -1,37 +1,57 @@
 import 'package:flutter/material.dart';
 import 'package:group_assign/models/post_model.dart';
+import 'package:group_assign/widgets/post_stat.dart';
 
-class PostList extends StatelessWidget {
-  final List<Post> posts;
+class PostDetailsPage extends StatelessWidget {
+  final Post post;
 
-  const PostList({super.key, required this.posts, required bool showOnlyPlumPosts});
+  const PostDetailsPage({super.key, required this.post});
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      itemCount: posts.length,
-      separatorBuilder: (context, index) => const Divider(),
-      itemBuilder: (context, index) {
-        final post = posts[index];
-        return ListTile(
-          title: Text(post.title),
-          subtitle: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+    return Scaffold(
+      appBar: AppBar(),
+      body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
             children: [
-              Text('Likes: ${post.likes}'),
-              Text('Dislikes: ${post.dislikes}'),
-              Text('Comments: ${post.comments.length}'),
+              Align(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  post.title,
+                  style: const TextStyle(
+                      fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+              ),
+              const SizedBox(height: 16),
+              PostStats(post: post),
+              // Display comments
+              const Divider(),
+              // Display comments
+              ListView.builder(
+                shrinkWrap: true,
+                itemCount: post.comments.length,
+                itemBuilder: (context, index) {
+                  final comment = post.comments[index];
+                  return Column(
+                    children: [
+                      ListTile(
+                        title: Row(
+                          children: [
+                            const Icon(Icons.person, size: 16),
+                            const SizedBox(
+                                width: 8), // เว้นช่องว่างระกว่างบรรทัด
+                            Text(comment.content),
+                          ],
+                        ),
+                      ),
+                      const Divider(),
+                    ],
+                  );
+                },
+              )
             ],
-          ),
-          onTap: () {
-            Navigator.pushNamed(
-              context,
-              '/postdetails',
-              arguments: {'post': post},
-            );
-          },
-        );
-      },
+          )),
     );
   }
 }
