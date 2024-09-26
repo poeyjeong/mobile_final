@@ -42,16 +42,8 @@ class MyApp extends StatelessWidget {
       },
       onGenerateRoute: (settings) {
         if (settings.name == '/history') {
-          final args = settings.arguments as List<Post>;
           return MaterialPageRoute(
-            builder: (context) => Scaffold(
-              appBar:
-                  const MyAppBar(), // Use MyAppBar as the app bar for history page
-              body: HistoryPage(posts: args),
-              bottomNavigationBar:
-                  const MyBottomNavigationBar(), // Show MyBottomNavigationBar on history page
-            ),
-          );
+              builder: (context) => const HistoryPage(posts: []));
         }
         return null;
       },
