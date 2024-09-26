@@ -1,6 +1,5 @@
 // app_bar.dart
 import 'package:flutter/material.dart';
-import 'package:group_assign/view/history.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   const MyAppBar({super.key});
@@ -19,26 +18,50 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 }
-class MyBottomNavigationBar extends StatelessWidget {
-  const MyBottomNavigationBar({super.key});
+class MyBottomNavigationBar extends StatefulWidget {
+  const MyBottomNavigationBar({super.key, this.currentIndex = 0});
+
+  final int currentIndex;
+
+  @override
+  _MyBottomNavigationBarState createState() => _MyBottomNavigationBarState();
+}
+
+class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
+  int _currentIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _currentIndex = widget.currentIndex;
+  }
 
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-        BottomNavigationBarItem(icon: Icon(Icons.history), label: "History"),
-      ],
+      type: BottomNavigationBarType.fixed,
+      currentIndex: _currentIndex,
+      selectedItemColor: Colors.blue, // สีของปุ่มที่ถูกเลือก
       onTap: (index) {
-        if (index == 1) {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const HistoryPage(posts: []), // Pass an empty list for now
-              )
-          ); // Navigate to history page
+        setState(() {
+          _currentIndex = index;
+        });
+        if (index == 0) {
+          Navigator.pushReplacementNamed(context, '/');
+        } else if (index == 1) {
+          Navigator.pushReplacementNamed(context, '/history');
         }
       },
+      items: const [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.history),
+          label: 'History',
+        ),
+      ],
     );
   }
 }
