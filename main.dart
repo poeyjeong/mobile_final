@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:group_assign/models/post_model.dart';
-import 'package:group_assign/view/app_bar.dart';
-import 'package:group_assign/view/history.dart';
-import 'package:group_assign/view/home.dart';
-import 'package:group_assign/view/post.dart';
-import 'package:group_assign/widgets/post_detail.dart';
+import 'package:mobile_final/models/post_model.dart';
+import 'package:mobile_final/view/app_bar.dart';
+import 'package:mobile_final/view/history.dart';
+import 'package:mobile_final/view/home.dart';
+import 'package:mobile_final/view/post.dart';
+import 'package:mobile_final/widgets/post_detail.dart';
 
 void main() {
   runApp(const MyApp());
