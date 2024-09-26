@@ -1,11 +1,24 @@
+// post_detail.dart
 import 'package:flutter/material.dart';
 import 'package:mobile_final/models/post_model.dart';
+import 'package:mobile_final/widgets/comment.dart';
 import 'package:mobile_final/widgets/post_stat.dart';
 
-class PostDetailsPage extends StatelessWidget {
+class PostDetailsPage extends StatefulWidget {
   final Post post;
 
   const PostDetailsPage({super.key, required this.post});
+
+  @override
+  _PostDetailsPageState createState() => _PostDetailsPageState();
+}
+
+class _PostDetailsPageState extends State<PostDetailsPage> {
+  Future<void> _addComment(String content) async {
+    final comment = Comment(author: 'Plum', content: content);
+    widget.post.comments.add(comment);
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,36 +31,45 @@ class PostDetailsPage extends StatelessWidget {
               Align(
                 alignment: Alignment.topLeft,
                 child: Text(
-                  post.title,
+                  widget.post.title,
                   style: const TextStyle(
                       fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
               const SizedBox(height: 16),
-              PostStats(post: post),
+              PostStats(post: widget.post),
               // Display comments
               const Divider(),
               // Display comments
-              ListView.builder(
-                shrinkWrap: true,
-                itemCount: post.comments.length,
-                itemBuilder: (context, index) {
-                  final comment = post.comments[index];
-                  return Column(
-                    children: [
-                      ListTile(
-                        title: Row(
-                          children: [
-                            const Icon(Icons.person, size: 16),
-                            const SizedBox(
-                                width: 8), // เว้นช่องว่างระกว่างบรรทัด
-                            Expanded(child: Text(comment.content),)
-                          ],
+              Expanded(
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: widget.post.comments.length,
+                  itemBuilder: (context, index) {
+                    final comment = widget.post.comments[index];
+                    return Column(
+                      children: [
+                        ListTile(
+                          title: Row(
+                            children: [
+                              const Icon(Icons.account_circle, size: 16),
+                              const SizedBox(
+                                  width: 8), // เว้นช่องว่างระกว่างบรรทัด
+                              Expanded(
+                                child: Text(comment.content),
+                              )
+                            ],
+                          ),
                         ),
-                      ),
-                      const Divider(),
-                    ],
-                  );
+                        const Divider(),
+                      ],
+                    );
+                  },
+                ),
+              ),
+              CommentInputWidget(
+                onCommentAdded: (comment) {
+                  _addComment(comment.content);
                 },
               )
             ],
