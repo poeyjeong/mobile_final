@@ -16,15 +16,8 @@ class _HomePageState extends State<HomePage> {
   List<Post> _posts = [];
   bool _isLoading = true;
 
-  @override
-  void initState() {
-    super.initState();
-    _fetchPosts();
-  }
-
   Future<void> _fetchPosts() async {
-    final response =
-        await http.get(Uri.parse('http://${Configure.server}/posts'));
+    final response = await http.get(Uri.parse('http://${Configure.server}/posts'));
 
     if (response.statusCode == 200) {
       final List<Post> posts = postsFromJson(response.body);
@@ -40,13 +33,19 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-@override
+  @override
+  void initState() {
+    super.initState();
+    _fetchPosts();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
-          : PostList(posts: _posts, showOnlyPlumPosts: false),
-      bottomNavigationBar: MyBottomNavigationBar(
+          : PostList(posts: _posts),
+      bottomNavigationBar: const MyBottomNavigationBar(
         currentIndex: 0,
       ),
     );
