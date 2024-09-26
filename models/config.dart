@@ -1,3 +1,3 @@
 class Configure{
-  static const server = "172.16.43.62:3000";
+  static const server = "172.16.41.195:3000";
 }
