@@ -1,57 +1,51 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:group_assign/models/config.dart';
+import 'package:http/http.dart' as http;
 import 'package:group_assign/models/post_model.dart';
-import 'package:group_assign/widgets/post_stat.dart';
 
-class PostDetailsPage extends StatelessWidget {
-  final Post post;
+class PostEditorPage extends StatefulWidget {
+  const PostEditorPage({super.key});
 
-  const PostDetailsPage({super.key, required this.post});
+  @override
+  _PostEditorPageState createState() => _PostEditorPageState();
+}
+
+class _PostEditorPageState extends State<PostEditorPage> {
+  List<Post> _posts = []; // Assume you have some posts to edit
+  // Add your editing logic here
+
+  Future<void> _savePosts() async {
+    String jsonData = postsToJson(_posts);
+
+    final response = await http.post(
+      Uri.parse('http://${Configure.server}/update_posts'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: utf8.encode(jsonData),
+    );
+
+    if (response.statusCode == 200) {
+      // Handle successful update
+    } else {
+      // Handle error
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  post.title,
-                  style: const TextStyle(
-                      fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-              ),
-              const SizedBox(height: 16),
-              PostStats(post: post),
-              // Display comments
-              const Divider(),
-              // Display comments
-              ListView.builder(
-                shrinkWrap: true,
-                itemCount: post.comments.length,
-                itemBuilder: (context, index) {
-                  final comment = post.comments[index];
-                  return Column(
-                    children: [
-                      ListTile(
-                        title: Row(
-                          children: [
-                            const Icon(Icons.person, size: 16),
-                            const SizedBox(
-                                width: 8), // เว้นช่องว่างระกว่างบรรทัด
-                            Text(comment.content),
-                          ],
-                        ),
-                      ),
-                      const Divider(),
-                    ],
-                  );
-                },
-              )
-            ],
-          )),
+      appBar: AppBar(
+        title: const Text('Post Editor'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: _savePosts,
+          child: const Text('Save Posts'),
+        ),
+      ),
     );
   }
 }
