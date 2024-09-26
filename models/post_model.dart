@@ -1,3 +1,4 @@
+// post_model.dart
 import 'dart:convert';
 
 // To parse JSON data into a list of Post objects
