@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:group_assign/models/post_model.dart';
+import 'package:mobile_final/models/post_model.dart';
 
 class PostStats extends StatelessWidget {
   final Post post;
