@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:group_assign/models/post_model.dart';
-import 'package:group_assign/widgets/post_stat.dart';
+import 'package:mobile_final/models/post_model.dart';
+import 'package:mobile_final/widgets/post_stat.dart';
 
 class PostDetailsPage extends StatelessWidget {
   final Post post;
@@ -41,7 +41,7 @@ class PostDetailsPage extends StatelessWidget {
                             const Icon(Icons.person, size: 16),
                             const SizedBox(
                                 width: 8), // เว้นช่องว่างระกว่างบรรทัด
-                            Text(comment.content),
+                            Expanded(child: Text(comment.content),)
                           ],
                         ),
                       ),
