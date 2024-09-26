@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:group_assign/view/app_bar.dart';
 import 'package:http/http.dart' as http;
-import 'package:group_assign/models/post_model.dart';
-import 'package:group_assign/widgets/post_list.dart';
-import 'package:group_assign/models/config.dart';
+import 'package:mobile_final/models/post_model.dart';
+import 'package:mobile_final/view/app_bar.dart';
+import 'package:mobile_final/widgets/post_list.dart';
+import 'package:mobile_final/models/config.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -41,18 +41,14 @@ class _HomePageState extends State<HomePage> {
   }
 
 @override
-Widget build(BuildContext context) {
-  return Scaffold(
-    body: _isLoading
-        ? const Center(child: CircularProgressIndicator())
-        : PostList(
-            posts: _posts, showOnlyPlumPosts: false),
-    floatingActionButton: FloatingActionButton(
-      onPressed: () {
-        Navigator.pushNamed(context, '/post');
-      },
-      child: const Icon(Icons.add),
-    ),
-    bottomNavigationBar: const MyBottomNavigationBar(),
-  );
-}}
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: _isLoading
+          ? const Center(child: CircularProgressIndicator())
+          : PostList(posts: _posts, showOnlyPlumPosts: false),
+      bottomNavigationBar: MyBottomNavigationBar(
+        currentIndex: 0,
+      ),
+    );
+  }
+}
