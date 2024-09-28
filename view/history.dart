@@ -39,16 +39,23 @@ class _HistoryPageState extends State<HistoryPage> {
   @override
   void initState() {
     super.initState();
-    _fetchPosts();
+    _fetchPosts(); // ดึงข้อมูลโพสต์เมื่อเพจเริ่มต้น
+  }
+
+  void _handlePostDeleted() {
+    _fetchPosts(); // Refresh the posts after deletion
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Plum's Posts")),
+      appBar: AppBar(title: const Text("Plum's Posts")),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
-          : PostList(posts: _posts, isHistoryPage: true), // เรียกใช้ PostList
+          : PostList(
+              posts: _posts,
+              isHistoryPage: true,
+              onPostDeleted: _handlePostDeleted), // Pass the callback
       bottomNavigationBar: const MyBottomNavigationBar(
         currentIndex: 1,
       ),
