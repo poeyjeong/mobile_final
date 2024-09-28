@@ -49,7 +49,6 @@ class _HistoryPageState extends State<HistoryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Plum's Posts")),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
           : PostList(
