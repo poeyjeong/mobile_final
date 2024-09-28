@@ -5,7 +5,8 @@ import 'package:mobile_final/view/app_bar.dart';
 import 'package:mobile_final/view/history.dart';
 import 'package:mobile_final/view/home.dart';
 import 'package:mobile_final/view/post.dart';
-import 'package:mobile_final/widgets/post_detail.dart';
+import 'package:mobile_final/widgets/post_delete.dart';
+import 'package:mobile_final/widgets/post_edit.dart';
 
 void main() {
   runApp(const MyApp());
@@ -40,6 +41,12 @@ class MyApp extends StatelessWidget {
             body: PostDetailsPage(post: post),
           );
         },
+        '/postedit': (context) {
+          final args = ModalRoute.of(context)!.settings.arguments
+              as Map<String, dynamic>;
+          final post = args['post'] as Post;
+          return PostEditPage(post: post);
+        }
       },
       // main.dart
       onGenerateRoute: (settings) {
