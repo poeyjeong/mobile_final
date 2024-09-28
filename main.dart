@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return Scaffold(
           appBar: const PreferredSize(
-            preferredSize: Size.fromHeight(56), // Set the height of the app bar
+            preferredSize: Size.fromHeight(56), // กำหนดความสูงของ app bar
             child: MyAppBar(), // ใช้ MyAppBar ในทุกหน้า
           ),
           body: child,
@@ -33,22 +33,9 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const HomePage(),
         '/post': (context) => const NewPostPage(),
-        '/postdetails': (context) {
-          final args = ModalRoute.of(context)!.settings.arguments
-              as Map<String, dynamic>;
-          final post = args['post'] as Post;
-          return Scaffold(
-            body: PostDetailsPage(post: post),
-          );
-        },
-        '/postedit': (context) {
-          final args = ModalRoute.of(context)!.settings.arguments
-              as Map<String, dynamic>;
-          final post = args['post'] as Post;
-          return PostEditPage(post: post);
-        }
+        '/postdetails': (context) => _buildPostDetailsPage(context),
+        '/postedit': (context) => _buildPostEditPage(context),
       },
-      // main.dart
       onGenerateRoute: (settings) {
         if (settings.name == '/history') {
           return MaterialPageRoute(builder: (context) => const HistoryPage());
@@ -56,5 +43,21 @@ class MyApp extends StatelessWidget {
         return null;
       },
     );
+  }
+
+  Widget _buildPostDetailsPage(BuildContext context) {
+    final args =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    final post = args['post'] as Post;
+    return Scaffold(
+      body: PostDetailsPage(post: post),
+    );
+  }
+
+  Widget _buildPostEditPage(BuildContext context) {
+    final args =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+    final post = args['post'] as Post;
+    return PostEditPage(post: post);
   }
 }
