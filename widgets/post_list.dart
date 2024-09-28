@@ -25,14 +25,23 @@ class PostList extends StatelessWidget {
       itemBuilder: (context, index) {
         final post = posts[index];
         return ListTile(
-          title: Text(post.title),
-          subtitle: PostStats(post: post),
+          title: Text(
+            post.title,
+            style: const TextStyle(
+                color: Colors.black), // กำหนดสีของข้อความเป็นสีขาว
+          ),
+          subtitle: PostStats(
+              post:
+                  post), // คุณอาจต้องปรับ PostStats ให้มีสีข้อความเป็นสีขาวเช่นกัน
+          tileColor:
+              Colors.white, // กำหนดพื้นหลังของ ListTile เป็นสีที่ต้องการ
           trailing: isHistoryPage
               ? Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     IconButton(
-                      icon: const Icon(Icons.edit),
+                      icon: const Icon(Icons.edit,
+                          color: Colors.black), // เปลี่ยนสีไอคอนเป็นสีขาว
                       onPressed: () {
                         // นำทางไปยัง PostEditPage
                         Navigator.push(
@@ -44,7 +53,8 @@ class PostList extends StatelessWidget {
                       },
                     ),
                     IconButton(
-                      icon: const Icon(Icons.delete),
+                      icon: const Icon(Icons.delete,
+                          color: Colors.black), // เปลี่ยนสีไอคอนเป็นสีขาว
                       onPressed: () {
                         // ฟังก์ชันลบโพสต์
                         _confirmDelete(context, post);
