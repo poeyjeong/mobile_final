@@ -1,4 +1,3 @@
-// post_delete.dart
 import 'package:flutter/material.dart';
 import 'package:mobile_final/models/config.dart';
 import 'package:mobile_final/models/post_model.dart';
@@ -18,6 +17,12 @@ class PostDelete extends StatelessWidget {
         final response = await http.delete(url);
 
         if (response.statusCode == 200) {
+          // แสดง Snackbar หรือข้อความสำเร็จ
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text("Post deleted successfully")),
+          );
+
+          // กลับไปยังหน้าประวัติ
           Navigator.pushNamed(context, '/history');
         } else {
           print("Failed to delete post: ${response.statusCode}");
