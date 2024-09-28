@@ -64,11 +64,11 @@ class _PostEditPageState extends State<PostEditPage> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.close), // Change back button to cross
+          icon: const Icon(Icons.close, color: Colors.white), // Set close icon color to white
           onPressed: () => Navigator.pop(context), // Go back on press
         ),
         title: const Text(''), // Empty title to remove default title
-        backgroundColor: Colors.purple[200], // Set AppBar background color
+        backgroundColor: const Color.fromRGBO(0, 105, 20, 1.0), // Set AppBar background color
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 16.0),
