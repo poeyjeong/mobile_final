@@ -43,12 +43,20 @@ class _HistoryPageState extends State<HistoryPage> {
   }
 
   void _handlePostDeleted() {
-    _fetchPosts(); // Refresh the posts after deletion
+    _fetchPosts(); // รีเฟรซ post หลังมีการลบ
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 102, 19, 211),
+        centerTitle: true,
+        title: const Text(
+          "ประวัติของคุณ",
+          style: TextStyle(fontSize: 24, color: Colors.white),
+        ),
+      ),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
           : PostList(
