@@ -1,4 +1,3 @@
-// comment.dart
 import 'package:flutter/material.dart';
 import 'package:mobile_final/models/post_model.dart';
 
@@ -21,11 +20,10 @@ class CommentList extends StatelessWidget {
                 title: Row(
                   children: [
                     const Icon(Icons.account_circle, size: 16),
-                    const SizedBox(
-                        width: 8), // เว้นช่องว่างระกว่างบรรทัด
+                    const SizedBox(width: 8),
                     Expanded(
                       child: Text(comment.content),
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -72,7 +70,8 @@ class _CommentInputWidgetState extends State<CommentInputWidget> {
             final comment = Comment(
                 postId: widget.post.id,
                 author: "Plum",
-                content: _commentController.text, String: null);
+                content: _commentController.text, 
+                String: null);
             widget.onCommentAdded(comment);
             _commentController.clear();
           },
