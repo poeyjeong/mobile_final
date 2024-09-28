@@ -59,26 +59,31 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 102, 19, 211),
+        backgroundColor: const Color.fromRGBO(0, 105, 20, 1.0),
         title: const Text(
           "Hello Plum :)",
-          style: TextStyle(fontSize: 24, color: Colors.white),
+          style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Color.fromRGBO(218,137,146, 1.0)),
         ),
       ),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
           : PostList(
-              posts: _posts, 
-              isHistoryPage: false, 
+              posts: _posts,
+              isHistoryPage: false,
               onPostDeleted: _handlePostDeleted), // Pass the callback
       bottomNavigationBar: const MyBottomNavigationBar(
         currentIndex: 0,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(context, '/postcreate'); // Navigate to NewPostPage
+          Navigator.pushNamed(
+              context, '/postcreate'); // Navigate to NewPostPage
         },
-        backgroundColor: const Color.fromARGB(255, 102, 19, 211),
+        backgroundColor: const Color.fromRGBO(0, 105, 20, 1.0),
+        foregroundColor: const Color.fromRGBO(218,137,146, 1.0), // สี +
         child: const Icon(Icons.add),
       ),
     );
