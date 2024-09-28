@@ -5,6 +5,7 @@ import 'package:mobile_final/view/app_bar.dart';
 import 'package:mobile_final/widgets/post_list.dart';
 import 'package:mobile_final/models/config.dart';
 
+// home_page.dart
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -17,19 +18,30 @@ class _HomePageState extends State<HomePage> {
   bool _isLoading = true;
 
   Future<void> _fetchPosts() async {
-    final response = await http.get(Uri.parse('http://${Configure.server}/posts'));
+    try {
+      final response =
+          await http.get(Uri.parse('http://${Configure.server}/posts'));
 
-    if (response.statusCode == 200) {
-      final List<Post> posts = postsFromJson(response.body);
+      print('Response status code: ${response.statusCode}');
+      print('Response body: ${response.body}');
+
+      if (response.statusCode == 200) {
+        final List<Post> posts = postsFromJson(response.body);
+        setState(() {
+          _posts = posts;
+          _isLoading = false;
+        });
+      } else {
+        setState(() {
+          _isLoading = false;
+        });
+        print('Failed to load posts');
+      }
+    } catch (e) {
       setState(() {
-        _posts = posts;
         _isLoading = false;
       });
-    } else {
-      setState(() {
-        _isLoading = false;
-      });
-      print('Failed to load posts');
+      print('Error: $e');
     }
   }
 
@@ -44,7 +56,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
-          : PostList(posts: _posts),
+          : PostList(posts: _posts, isHistoryPage: false),
       bottomNavigationBar: const MyBottomNavigationBar(
         currentIndex: 0,
       ),
