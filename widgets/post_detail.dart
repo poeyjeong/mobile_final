@@ -75,7 +75,13 @@ class _PostDetailsPageState extends State<PostDetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.close), // Change back button to cross
+          onPressed: () => Navigator.pop(context), // Go back on press
+        ),
+        title: const Text(''), // You can set the title as needed
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -84,7 +90,8 @@ class _PostDetailsPageState extends State<PostDetailsPage> {
               alignment: Alignment.topLeft,
               child: Text(
                 widget.post.title,
-                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                style:
+                    const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ),
             const SizedBox(height: 16),
