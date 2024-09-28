@@ -25,21 +25,39 @@ class _PostEditPageState extends State<PostEditPage> {
 
   Future<void> _updatePost() async {
     final url = Uri.parse('http://${Configure.server}/posts/${widget.post.id}');
-    final response = await http.put(
-      url,
-      headers: {
-        'Content-Type': 'application/json; charset=utf-8',
-      },
-      body: jsonEncode({
-        'title': _titleController.text,
-      }),
-    );
+    final response = await http.get(url); // ดึงข้อมูลโพสต์เดิมจากเซิร์ฟเวอร์
 
     if (response.statusCode == 200) {
-      Navigator.pop(context);
-      Navigator.pushNamed(context, '/history');
+      // แปลงข้อมูลโพสต์ที่ดึงมา
+      final Map<String, dynamic> existingPost = jsonDecode(response.body);
+
+      // สร้าง Map ใหม่ที่อัปเดตเฉพาะ title
+      final updatedPost = {
+        'id': existingPost['id'],
+        'title': _titleController.text, // อัปเดตเฉพาะ title ที่เหลือเป็นค่าเดิม
+        'author': existingPost['author'],
+        'comments': existingPost['comments'],
+        'likes': existingPost['likes'],
+        'dislikes': existingPost['dislikes'],
+      };
+
+      // ส่งข้อมูลที่แก้ไขกลับไปที่เซิร์ฟเวอร์
+      final updateResponse = await http.put(
+        url,
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8',
+        },
+        body: jsonEncode(updatedPost),
+      );
+
+      if (updateResponse.statusCode == 200) {
+        Navigator.pop(context);
+        Navigator.pushNamed(context, '/history');
+      } else {
+        print('Failed to update post');
+      }
     } else {
-      print('Failed to update post');
+      print('Failed to load post');
     }
   }
 
