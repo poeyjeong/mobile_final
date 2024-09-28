@@ -21,30 +21,34 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
-      currentIndex: _currentIndex,
-      selectedItemColor: Colors.blue, // สีของปุ่มที่ถูกเลือก
-      onTap: (index) {
-        setState(() {
-          _currentIndex = index;
-        });
-        if (index == 0) {
-          Navigator.pushReplacementNamed(context, '/');
-        } else if (index == 1) {
-          Navigator.pushReplacementNamed(context, '/history');
-        }
-      },
-      items: const [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: 'Home',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.history),
-          label: 'History',
-        ),
-      ],
+    return Container(
+      color: Colors.grey[200], // Change this to your desired color
+      child: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        currentIndex: _currentIndex,
+        selectedItemColor: const Color.fromRGBO(0, 105, 20, 1.0), // สีหน้าที่เลือก
+        unselectedItemColor: Colors.grey, // สีหน้าที่ไม่เลือก
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+          if (index == 0) {
+            Navigator.pushReplacementNamed(context, '/');
+          } else if (index == 1) {
+            Navigator.pushReplacementNamed(context, '/history');
+          }
+        },
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.history),
+            label: 'History',
+          ),
+        ],
+      ),
     );
   }
 }
