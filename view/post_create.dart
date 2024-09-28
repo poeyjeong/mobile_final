@@ -1,8 +1,8 @@
-// post_create.dart
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:mobile_final/models/config.dart';
+import 'package:mobile_final/widgets/post_action_button.dart';
 
 class PostCreatePage extends StatefulWidget {
   const PostCreatePage({super.key});
@@ -19,7 +19,7 @@ class _PostCreatePageState extends State<PostCreatePage> {
     
     final newPost = {
       'title': _titleController.text,
-      'author': 'Plum', // Set author or get it dynamically
+      'author': 'Plum',
       'comments': [],
       'likes': 0,
       'dislikes': 0,
@@ -45,23 +45,32 @@ class _PostCreatePageState extends State<PostCreatePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('สร้างโพสต์ใหม่'),
+        leading: const BackButton(), // Back button on the left
+        title: const Text(''), // Empty title to remove default title
+        backgroundColor: Colors.purple[200], // Set AppBar background color to light purple
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 16.0), // Add padding to the right
+            child: PostActionButton(onPressed: _createPost), // New Post button
+          ),
+        ],
       ),
-      body: Padding(
+      body: Container(
+        color: Colors.white, // Set body background color to white
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             TextField(
               controller: _titleController,
+              maxLines: 3, // Allow multiline input
               decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'ชื่อโพสต์',
+                border: InputBorder.none, // Remove border
+                filled: true, // Fill color
+                fillColor: Colors.white, // Set TextField background color to white
+                hintText: 'ถ้าคุณมีปัญหาหรือเรื่องที่อยากจะพูดคุยกับเพื่อนๆ\nอย่าลังเลที่จะพูดออกมา :)',
+                hintStyle: TextStyle(color: Colors.grey), // Hint style
               ),
-            ),
-            const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: _createPost,
-              child: const Text('สร้างโพสต์'),
+              textAlign: TextAlign.left,
             ),
           ],
         ),
