@@ -1,439 +1,450 @@
 {
-    "posts": [
+  "posts": [
+    {
+      "id": "postId1",
+      "author": "Plum",
+      "title": "Is the street food stall open today?",
+      "likes": 10,
+      "dislikes": 2,
+      "comments": [
         {
-            "id": "postId1",
-            "author": "Plum",
-            "title": "ลูกชิ้นหน้าคุ้มเปิดไหมคะ",
-            "likes": 10,
-            "dislikes": 2,
-            "comments": [
-                {
-                    "author": "User1",
-                    "content": "เปิดค่ะ ลองไปดูนะ"
-                },
-                {
-                    "author": "User2",
-                    "content": "อร่อยมากเลย"
-                }
-            ]
+          "author": "User1",
+          "content": "Yes! Just went there, still delicious!",
+          "postId": "postId1"
         },
         {
-            "id": "postId2",
-            "author": "Mook",
-            "title": "ถ้าผักโขมกลายเป็นขนม มันจะรสชาติยังไง?",
-            "likes": 5,
-            "dislikes": 10,
-            "comments": [
-                {
-                    "author": "User1",
-                    "content": "มันคงมีรสชาติเหมือนความผิดหวังในชีวิตนิดๆ"
-                },
-                {
-                    "author": "User2",
-                    "content": "ขมคอออออออ"
-                }
-            ]
+          "author": "User2",
+          "content": "Try the spicy skewers!",
+          "postId": "postId1"
         },
         {
-            "id": "postId3",
-            "author": "Sofia",
-            "title": "แนะนำหนังตลกที่ดูกี่รอบก็ขำหน่อยค่ะ",
-            "likes": 15,
-            "dislikes": 1,
-            "comments": [
-                {
-                    "author": "User3",
-                    "content": "ลองดูเรื่อง 'หอแต๋วแตก' นะ ขำจนท้องแข็ง!"
-                },
-                {
-                    "author": "User4",
-                    "content": "พี่มาก..พระโขนงก็ไม่เลว"
-                }
-            ]
-        },
-        {
-            "id": "postId4",
-            "author": "Tom",
-            "title": "ทำยังไงให้แมวที่บ้านเลิกข่วนเฟอร์นิเจอร์?",
-            "likes": 20,
-            "dislikes": 3,
-            "comments": [
-                {
-                    "author": "User5",
-                    "content": "ต้องมีที่ข่วนแมวแยกให้เลยค่ะ จะช่วยได้เยอะ"
-                },
-                {
-                    "author": "User6",
-                    "content": "ลองใช้สเปรย์ไล่นะคะ"
-                }
-            ]
-        },
-        {
-            "id": "postId5",
-            "author": "Plum",
-            "title": "ใครเคยทำเค้กชาไทยบ้าง? ขอสูตรหน่อยค่ะ",
-            "likes": 18,
-            "dislikes": 0,
-            "comments": [
-                {
-                    "author": "User7",
-                    "content": "สูตรนี้ดีมาก https://example.com"
-                },
-                {
-                    "author": "User8",
-                    "content": "ลองใส่นมข้นหวานเพิ่มอีกหน่อยจะอร่อยสุดๆ"
-                }
-            ]
-        },
-        {
-            "id": "postId6",
-            "author": "Pong",
-            "title": "ห้องครัวควรติดวอลเปเปอร์แบบไหนดีครับ?",
-            "likes": 8,
-            "dislikes": 2,
-            "comments": [
-                {
-                    "author": "User9",
-                    "content": "ลายที่กันน้ำและล้างง่ายจะเหมาะที่สุดค่ะ"
-                },
-                {
-                    "author": "User10",
-                    "content": "แนะนำลายหินอ่อนนะ ดูหรูหราดี"
-                }
-            ]
-        },
-        {
-            "id": "postId7",
-            "author": "Anne",
-            "title": "ปลูกผักอะไรดีที่ดูแลง่ายและโตเร็ว?",
-            "likes": 12,
-            "dislikes": 1,
-            "comments": [
-                {
-                    "author": "User11",
-                    "content": "แนะนำปลูกผักชีค่ะ โตเร็วมาก"
-                },
-                {
-                    "author": "User12",
-                    "content": "ถั่วงอกก็ดีนะ ดูแลง่าย"
-                }
-            ]
-        },
-        {
-            "id": "postId8",
-            "author": "Mook",
-            "title": "ใครเคยไปเกาะเต่าบ้าง แนะนำที่พักหน่อย",
-            "likes": 25,
-            "dislikes": 4,
-            "comments": [
-                {
-                    "author": "User13",
-                    "content": "พักที่ 'เกาะเต่ารีสอร์ท' ดีมากค่ะ วิวสวย"
-                },
-                {
-                    "author": "User14",
-                    "content": "ลองเช็ค AirBnb ดูนะคะ มีหลายตัวเลือก"
-                }
-            ]
-        },
-        {
-            "id": "postId9",
-            "author": "Sofia",
-            "title": "มือถือรุ่นไหนถ่ายรูปสวยๆแนะนำหน่อยค่ะ",
-            "likes": 30,
-            "dislikes": 5,
-            "comments": [
-                {
-                    "author": "User15",
-                    "content": "iPhone 15 Pro Max ถ่ายสวยมาก"
-                },
-                {
-                    "author": "User1",
-                    "content": "ลองดู Samsung Galaxy S23 Ultra ก็ไม่เลวนะ"
-                }
-            ]
-        },
-        {
-            "id": "postId10",
-            "author": "Plum",
-            "title": "ทำยังไงให้พริกที่ปลูกดกมากขึ้นครับ?",
-            "likes": 14,
-            "dislikes": 0,
-            "comments": [
-                {
-                    "author": "User7",
-                    "content": "ลองใส่ปุ๋ยคอกและรดน้ำเช้าเย็นค่ะ"
-                },
-                {
-                    "author": "User9",
-                    "content": "เลือกสายพันธุ์พริกที่ทนโรคจะช่วยได้"
-                }
-            ]
-        },
-        {
-            "id": "postId11",
-            "author": "John",
-            "title": "ใช้โปรแกรมตัดต่อวิดีโอตัวไหนกันบ้างครับ?",
-            "likes": 22,
-            "dislikes": 1,
-            "comments": [
-                {
-                    "author": "User1",
-                    "content": "ผมใช้ Premiere Pro ครับ ใช้งานง่าย"
-                },
-                {
-                    "author": "User2",
-                    "content": "Final Cut Pro ก็โอเคนะ"
-                }
-            ]
-        },
-        {
-            "id": "postId12",
-            "author": "Yaya",
-            "title": "ใครเคยทำขนมปังด้วยหม้อทอดไร้น้ำมันบ้าง?",
-            "likes": 15,
-            "dislikes": 3,
-            "comments": [
-                {
-                    "author": "User3",
-                    "content": "ทำได้ค่ะ แต่นุ่มไม่เท่าอบเตา"
-                },
-                {
-                    "author": "User4",
-                    "content": "ใช้แป้งน้อยๆ แล้วจะฟูมากขึ้น"
-                }
-            ]
-        },
-        {
-            "id": "postId13",
-            "author": "Bear",
-            "title": "ควรซื้อแท็บเล็ตหรือโน้ตบุ๊คดี?",
-            "likes": 17,
-            "dislikes": 4,
-            "comments": [
-                {
-                    "author": "User5",
-                    "content": "ถ้าทำงานเยอะๆ แนะนำโน้ตบุ๊คค่ะ"
-                }
-            ]
-        },
-        {
-            "id": "postId14",
-            "author": "Plum",
-            "title": "วิธีแก้ผมร่วงทำยังไงดีคะ?",
-            "likes": 19,
-            "dislikes": 0,
-            "comments": [
-                {
-                    "author": "User6",
-                    "content": "ลองใช้ยาสระผมที่มีสารสกัดจากสมุนไพรดูนะคะ"
-                },
-                {
-                    "author": "User4",
-                    "content": "กินไบโอตินเสริมด้วยค่ะ ช่วยได้เยอะ"
-                }
-            ]
-        },
-        {
-            "id": "postId15",
-            "author": "Bear",
-            "title": "แนะนำเมนูอาหารเช้าทำง่ายๆหน่อยค่ะ",
-            "likes": 21,
-            "dislikes": 2,
-            "comments": [
-                {
-                    "author": "User8",
-                    "content": "ขนมปังทาเนยกับไข่ลวกสิคะ"
-                }
-            ]
-        },
-        {
-            "id": "postId16",
-            "author": "Plum",
-            "title": "ซื้อกล้องมือสองดีไหมครับ?",
-            "likes": 11,
-            "dislikes": 3,
-            "comments": [
-                {
-                    "author": "User5",
-                    "content": "ดีค่ะ แต่ต้องเช็คสภาพดีๆ นะ"
-                },
-                {
-                    "author": "User4",
-                    "content": "ถ้าประหยัดงบก็โอเค แต่ต้องซื้อจากแหล่งที่ไว้ใจได้"
-                }
-            ]
-        },
-        {
-            "id": "postId17",
-            "author": "Mook",
-            "title": "ใครเคยปลูกต้นไม้ในคอนโดบ้าง แนะนำหน่อย",
-            "likes": 23,
-            "dislikes": 1,
-            "comments": [
-                {
-                    "author": "User4",
-                    "content": "ปลูกมอนสเตอร่าได้นะคะ ไม่ต้องแดดเยอะ"
-                },
-                {
-                    "author": "User3",
-                    "content": "ลองปลูกแคคตัสสิ ดูแลง่ายมาก"
-                }
-            ]
-        },
-        {
-            "id": "postId18",
-            "author": "Sofia",
-            "title": "ใครเคยใช้ Windows 11 แล้วบ้างเป็นยังไงบ้างครับ?",
-            "likes": 18,
-            "dislikes": 5,
-            "comments": [
-                {
-                    "author": "User10",
-                    "content": "เร็วขึ้นนิดหน่อย แต่ต้องปรับตัวกับอินเตอร์เฟซใหม่"
-                }
-            ]
-        },
-        {
-            "id": "postId19",
-            "author": "Yaya",
-            "title": "ช่วยแนะนำเครื่องฟอกอากาศที่ดีๆหน่อยค่ะ",
-            "likes": 28,
-            "dislikes": 2,
-            "comments": [
-                {
-                    "author": "User4",
-                    "content": "Xiaomi ดีมากค่ะ คุ้มราคา"
-                },
-                {
-                    "author": "User1",
-                    "content": "Dyson ก็ดี แต่ราคาสูงไปนิด"
-                }
-            ]
-        },
-        {
-            "id": "postId20",
-            "author": "Plum",
-            "title": "ใครเคยมีประสบการณ์ขับรถขึ้นดอยบ้าง ยากไหม?",
-            "likes": 14,
-            "dislikes": 3,
-            "comments": [
-                {
-                    "author": "User1",
-                    "content": "ไม่ยากมากค่ะ แค่ขับระวังหน่อย"
-                },
-                {
-                    "author": "User7",
-                    "content": "แนะนำใช้รถเกียร์ออโต้นะ สบายกว่า"
-                }
-            ]
-        },
-        {
-            "id": "postId21",
-            "author": "Anne",
-            "title": "ซื้อจักรยานไฟฟ้ารุ่นไหนดีคะ?",
-            "likes": 20,
-            "dislikes": 4,
-            "comments": [
-                {
-                    "author": "User8",
-                    "content": "LA Bicycle ก็ดีค่ะ เบาและทน"
-                }
-            ]
-        },
-        {
-            "id": "postId22",
-            "author": "Mook",
-            "title": "ควรเลือกกล้องติดรถยนต์แบบไหนดีที่สุด?",
-            "likes": 16,
-            "dislikes": 2,
-            "comments": [
-                {
-                    "author": "User9",
-                    "content": "เลือกแบบที่มีกล้องหน้า-หลังครบจะดีกว่าค่ะ"
-                },
-                {
-                    "author": "User15",
-                    "content": "กล้องที่มีความละเอียดสูงเกิน 1080p ก็ดีนะ"
-                }
-            ]
-        },
-        {
-            "id": "postId23",
-            "author": "Kras",
-            "title": "ใครมีสูตรทำไข่เจียวที่ฟูๆบ้างคะ?",
-            "likes": 19,
-            "dislikes": 0,
-            "comments": [
-                {
-                    "author": "User1",
-                    "content": "ใส่น้ำมะนาวสักหยดแล้วตีไข่แรงๆค่ะ"
-                }
-            ]
-        },
-        {
-            "id": "postId24",
-            "author": "Pong",
-            "title": "ใครเคยไปภูเก็ตคนเดียวบ้าง แชร์ประสบการณ์หน่อยครับ",
-            "likes": 25,
-            "dislikes": 5,
-            "comments": [
-                {
-                    "author": "User8",
-                    "content": "เคยไปค่ะ สนุกมาก แต่ควรเตรียมตัวดีๆ"
-                },
-                {
-                    "author": "User5",
-                    "content": "คนเดียวก็สนุกนะ แต่มีเพื่อนไปด้วยดีกว่า"
-                }
-            ]
-        },
-        {
-            "id": "postId25",
-            "author": "Plum",
-            "title": "คิดว่ารถยนต์ไฟฟ้าจะเข้ามาแทนที่เครื่องยนต์สันดาปเมื่อไหร่ครับ?",
-            "likes": 32,
-            "dislikes": 6,
-            "comments": [
-                {
-                    "author": "User1",
-                    "content": "อีกไม่นานหรอกครับ อาจจะภายใน 10 ปี"
-                },
-                {
-                    "author": "User5",
-                    "content": "ตอนนี้ก็เริ่มมาแล้วนะ ราคาก็ถูกลงเรื่อยๆ"
-                }
-            ]
-        },
-        {
-            "id": "postId26",
-            "author": "Sofia",
-            "title": "ชอบน้ำหอมกลิ่นไหนกันบ้าง?",
-            "likes": 18,
-            "dislikes": 0,
-            "comments": [
-                {
-                    "author": "User4",
-                    "content": "Chanel No. 5 เลยค่ะ หอมคลาสสิค"
-                },
-                {
-                    "author": "User5",
-                    "content": "Dior Sauvage ก็ดีมากนะคะ"
-                }
-            ]
-        },
-        {
-            "id": "postId27",
-            "author": "Fah",
-            "title": "ใครมีเทคนิคการปลูกพริกที่ดีบ้าง?",
-            "likes": 12,
-            "dislikes": 3,
-            "comments": [
-                {
-                    "author": "User2",
-                    "content": "ปลูกในกระถางดีค่ะ ดูแลง่ายกว่า"
-                }
-            ]
+          "author": "Plum",
+          "content": "y",
+          "postId": "postId1"
         }
-    ]
+      ]
+    },
+    {
+      "id": "postId2",
+      "author": "Mook",
+      "title": "If spinach became a dessert, what would it taste like?",
+      "likes": 5,
+      "dislikes": 10,
+      "comments": [
+        {
+          "author": "User1",
+          "content": "Probably like the subtle taste of regret.",
+          "postId": "postId2"
+        },
+        {
+          "author": "User2",
+          "content": "Bitter... very bitter.",
+          "postId": "postId2"
+        }
+      ]
+    },
+    {
+      "id": "postId3",
+      "author": "Sofia",
+      "title": "Best way to boost productivity?",
+      "likes": 15,
+      "dislikes": 1,
+      "comments": [
+        {
+          "author": "User3",
+          "content": "Pomodoro Technique works wonders for me!",
+          "postId": "postId3"
+        },
+        {
+          "author": "User4",
+          "content": "A good playlist with no lyrics helps a lot.",
+          "postId": "postId3"
+        }
+      ]
+    },
+    {
+      "id": "postId4",
+      "author": "Tom",
+      "title": "ทำยังไงให้แมวที่บ้านเลิกข่วนเฟอร์นิเจอร์?",
+      "likes": 20,
+      "dislikes": 3,
+      "comments": [
+        {
+          "author": "User5",
+          "content": "ต้องมีที่ข่วนแมวแยกให้เลยค่ะ จะช่วยได้เยอะ"
+        },
+        {
+          "author": "User6",
+          "content": "ลองใช้สเปรย์ไล่นะคะ"
+        }
+      ]
+    },
+    {
+      "id": "postId5",
+      "author": "Plum",
+      "title": "ใครเคยทำเค้กชาไทยบ้าง? ขอสูตรหน่อยค่ะ",
+      "likes": 18,
+      "dislikes": 0,
+      "comments": [
+        {
+          "author": "User7",
+          "content": "สูตรนี้ดีมาก https://example.com"
+        },
+        {
+          "author": "User8",
+          "content": "ลองใส่นมข้นหวานเพิ่มอีกหน่อยจะอร่อยสุดๆ"
+        }
+      ]
+    },
+    {
+      "id": "postId6",
+      "author": "Pong",
+      "title": "ห้องครัวควรติดวอลเปเปอร์แบบไหนดีครับ?",
+      "likes": 8,
+      "dislikes": 2,
+      "comments": [
+        {
+          "author": "User9",
+          "content": "ลายที่กันน้ำและล้างง่ายจะเหมาะที่สุดค่ะ"
+        },
+        {
+          "author": "User10",
+          "content": "แนะนำลายหินอ่อนนะ ดูหรูหราดี"
+        }
+      ]
+    },
+    {
+      "id": "postId7",
+      "author": "Anne",
+      "title": "ปลูกผักอะไรดีที่ดูแลง่ายและโตเร็ว?",
+      "likes": 12,
+      "dislikes": 1,
+      "comments": [
+        {
+          "author": "User11",
+          "content": "แนะนำปลูกผักชีค่ะ โตเร็วมาก"
+        },
+        {
+          "author": "User12",
+          "content": "ถั่วงอกก็ดีนะ ดูแลง่าย"
+        }
+      ]
+    },
+    {
+      "id": "postId8",
+      "author": "Mook",
+      "title": "ใครเคยไปเกาะเต่าบ้าง แนะนำที่พักหน่อย",
+      "likes": 25,
+      "dislikes": 4,
+      "comments": [
+        {
+          "author": "User13",
+          "content": "พักที่ 'เกาะเต่ารีสอร์ท' ดีมากค่ะ วิวสวย"
+        },
+        {
+          "author": "User14",
+          "content": "ลองเช็ค AirBnb ดูนะคะ มีหลายตัวเลือก"
+        }
+      ]
+    },
+    {
+      "id": "postId9",
+      "author": "Sofia",
+      "title": "มือถือรุ่นไหนถ่ายรูปสวยๆแนะนำหน่อยค่ะ",
+      "likes": 30,
+      "dislikes": 5,
+      "comments": [
+        {
+          "author": "User15",
+          "content": "iPhone 15 Pro Max ถ่ายสวยมาก"
+        },
+        {
+          "author": "User1",
+          "content": "ลองดู Samsung Galaxy S23 Ultra ก็ไม่เลวนะ"
+        }
+      ]
+    },
+    {
+      "id": "postId10",
+      "author": "Plum",
+      "title": "ทำยังไงให้พริกที่ปลูกดกมากขึ้นครับ?",
+      "likes": 14,
+      "dislikes": 0,
+      "comments": [
+        {
+          "author": "User7",
+          "content": "ลองใส่ปุ๋ยคอกและรดน้ำเช้าเย็นค่ะ"
+        },
+        {
+          "author": "User9",
+          "content": "เลือกสายพันธุ์พริกที่ทนโรคจะช่วยได้"
+        }
+      ]
+    },
+    {
+      "id": "postId11",
+      "author": "John",
+      "title": "ใช้โปรแกรมตัดต่อวิดีโอตัวไหนกันบ้างครับ?",
+      "likes": 22,
+      "dislikes": 1,
+      "comments": [
+        {
+          "author": "User1",
+          "content": "ผมใช้ Premiere Pro ครับ ใช้งานง่าย"
+        },
+        {
+          "author": "User2",
+          "content": "Final Cut Pro ก็โอเคนะ"
+        }
+      ]
+    },
+    {
+      "id": "postId12",
+      "author": "Yaya",
+      "title": "ใครเคยทำขนมปังด้วยหม้อทอดไร้น้ำมันบ้าง?",
+      "likes": 15,
+      "dislikes": 3,
+      "comments": [
+        {
+          "author": "User3",
+          "content": "ทำได้ค่ะ แต่นุ่มไม่เท่าอบเตา"
+        },
+        {
+          "author": "User4",
+          "content": "ใช้แป้งน้อยๆ แล้วจะฟูมากขึ้น"
+        }
+      ]
+    },
+    {
+      "id": "postId13",
+      "author": "Bear",
+      "title": "ควรซื้อแท็บเล็ตหรือโน้ตบุ๊คดี?",
+      "likes": 17,
+      "dislikes": 4,
+      "comments": [
+        {
+          "author": "User5",
+          "content": "ถ้าทำงานเยอะๆ แนะนำโน้ตบุ๊คค่ะ"
+        }
+      ]
+    },
+    {
+      "id": "postId14",
+      "author": "Plum",
+      "title": "วิธีแก้ผมร่วงทำยังไงดีคะ?",
+      "likes": 19,
+      "dislikes": 0,
+      "comments": [
+        {
+          "author": "User6",
+          "content": "ลองใช้ยาสระผมที่มีสารสกัดจากสมุนไพรดูนะคะ"
+        },
+        {
+          "author": "User4",
+          "content": "กินไบโอตินเสริมด้วยค่ะ ช่วยได้เยอะ"
+        }
+      ]
+    },
+    {
+      "id": "postId15",
+      "author": "Bear",
+      "title": "แนะนำเมนูอาหารเช้าทำง่ายๆหน่อยค่ะ",
+      "likes": 21,
+      "dislikes": 2,
+      "comments": [
+        {
+          "author": "User8",
+          "content": "ขนมปังทาเนยกับไข่ลวกสิคะ"
+        }
+      ]
+    },
+    {
+      "id": "postId16",
+      "author": "Plum",
+      "title": "ซื้อกล้องมือสองดีไหมครับ?",
+      "likes": 11,
+      "dislikes": 3,
+      "comments": [
+        {
+          "author": "User5",
+          "content": "ดีค่ะ แต่ต้องเช็คสภาพดีๆ นะ"
+        },
+        {
+          "author": "User4",
+          "content": "ถ้าประหยัดงบก็โอเค แต่ต้องซื้อจากแหล่งที่ไว้ใจได้"
+        }
+      ]
+    },
+    {
+      "id": "postId17",
+      "author": "Mook",
+      "title": "ใครเคยปลูกต้นไม้ในคอนโดบ้าง แนะนำหน่อย",
+      "likes": 23,
+      "dislikes": 1,
+      "comments": [
+        {
+          "author": "User4",
+          "content": "ปลูกมอนสเตอร่าได้นะคะ ไม่ต้องแดดเยอะ"
+        },
+        {
+          "author": "User3",
+          "content": "ลองปลูกแคคตัสสิ ดูแลง่ายมาก"
+        }
+      ]
+    },
+    {
+      "id": "postId18",
+      "author": "Sofia",
+      "title": "ใครเคยใช้ Windows 11 แล้วบ้างเป็นยังไงบ้างครับ?",
+      "likes": 18,
+      "dislikes": 5,
+      "comments": [
+        {
+          "author": "User10",
+          "content": "เร็วขึ้นนิดหน่อย แต่ต้องปรับตัวกับอินเตอร์เฟซใหม่"
+        }
+      ]
+    },
+    {
+      "id": "postId19",
+      "author": "Yaya",
+      "title": "ช่วยแนะนำเครื่องฟอกอากาศที่ดีๆหน่อยค่ะ",
+      "likes": 28,
+      "dislikes": 2,
+      "comments": [
+        {
+          "author": "User4",
+          "content": "Xiaomi ดีมากค่ะ คุ้มราคา"
+        },
+        {
+          "author": "User1",
+          "content": "Dyson ก็ดี แต่ราคาสูงไปนิด"
+        }
+      ]
+    },
+    {
+      "id": "postId20",
+      "author": "Plum",
+      "title": "ใครเคยมีประสบการณ์ขับรถขึ้นดอยบ้าง ยากไหม?",
+      "likes": 14,
+      "dislikes": 3,
+      "comments": [
+        {
+          "author": "User1",
+          "content": "ไม่ยากมากค่ะ แค่ขับระวังหน่อย"
+        },
+        {
+          "author": "User7",
+          "content": "แนะนำใช้รถเกียร์ออโต้นะ สบายกว่า"
+        }
+      ]
+    },
+    {
+      "id": "postId21",
+      "author": "Anne",
+      "title": "ซื้อจักรยานไฟฟ้ารุ่นไหนดีคะ?",
+      "likes": 20,
+      "dislikes": 4,
+      "comments": [
+        {
+          "author": "User8",
+          "content": "LA Bicycle ก็ดีค่ะ เบาและทน"
+        }
+      ]
+    },
+    {
+      "id": "postId22",
+      "author": "Mook",
+      "title": "ควรเลือกกล้องติดรถยนต์แบบไหนดีที่สุด?",
+      "likes": 16,
+      "dislikes": 2,
+      "comments": [
+        {
+          "author": "User9",
+          "content": "เลือกแบบที่มีกล้องหน้า-หลังครบจะดีกว่าค่ะ"
+        },
+        {
+          "author": "User15",
+          "content": "กล้องที่มีความละเอียดสูงเกิน 1080p ก็ดีนะ"
+        }
+      ]
+    },
+    {
+      "id": "postId23",
+      "author": "Kras",
+      "title": "ใครมีสูตรทำไข่เจียวที่ฟูๆบ้างคะ?",
+      "likes": 19,
+      "dislikes": 0,
+      "comments": [
+        {
+          "author": "User1",
+          "content": "ใส่น้ำมะนาวสักหยดแล้วตีไข่แรงๆค่ะ"
+        }
+      ]
+    },
+    {
+      "id": "postId24",
+      "author": "Pong",
+      "title": "ใครเคยไปภูเก็ตคนเดียวบ้าง แชร์ประสบการณ์หน่อยครับ",
+      "likes": 25,
+      "dislikes": 5,
+      "comments": [
+        {
+          "author": "User8",
+          "content": "เคยไปค่ะ สนุกมาก แต่ควรเตรียมตัวดีๆ"
+        },
+        {
+          "author": "User5",
+          "content": "คนเดียวก็สนุกนะ แต่มีเพื่อนไปด้วยดีกว่า"
+        }
+      ]
+    },
+    {
+      "id": "postId25",
+      "author": "Plum",
+      "title": "คิดว่ารถยนต์ไฟฟ้าจะเข้ามาแทนที่เครื่องยนต์สันดาปเมื่อไหร่ครับ?",
+      "likes": 32,
+      "dislikes": 6,
+      "comments": [
+        {
+          "author": "User1",
+          "content": "อีกไม่นานหรอกครับ อาจจะภายใน 10 ปี"
+        },
+        {
+          "author": "User5",
+          "content": "ตอนนี้ก็เริ่มมาแล้วนะ ราคาก็ถูกลงเรื่อยๆ"
+        }
+      ]
+    },
+    {
+      "id": "postId26",
+      "author": "Sofia",
+      "title": "ชอบน้ำหอมกลิ่นไหนกันบ้าง?",
+      "likes": 18,
+      "dislikes": 0,
+      "comments": [
+        {
+          "author": "User4",
+          "content": "Chanel No. 5 เลยค่ะ หอมคลาสสิค"
+        },
+        {
+          "author": "User5",
+          "content": "Dior Sauvage ก็ดีมากนะคะ"
+        }
+      ]
+    },
+    {
+      "id": "postId27",
+      "author": "Fah",
+      "title": "ใครมีเทคนิคการปลูกพริกที่ดีบ้าง?",
+      "likes": 12,
+      "dislikes": 3,
+      "comments": [
+        {
+          "author": "User2",
+          "content": "ปลูกในกระถางดีค่ะ ดูแลง่ายกว่า"
+        }
+      ]
+    }
+  ]
 }
