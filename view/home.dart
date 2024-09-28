@@ -74,6 +74,13 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: const MyBottomNavigationBar(
         currentIndex: 0,
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushNamed(context, '/postcreate'); // Navigate to NewPostPage
+        },
+        backgroundColor: const Color.fromARGB(255, 102, 19, 211),
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }
