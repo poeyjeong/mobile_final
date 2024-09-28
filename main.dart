@@ -5,7 +5,7 @@ import 'package:mobile_final/view/app_bar.dart';
 import 'package:mobile_final/view/history.dart';
 import 'package:mobile_final/view/home.dart';
 import 'package:mobile_final/view/post.dart';
-import 'package:mobile_final/widgets/post_delete.dart';
+import 'package:mobile_final/widgets/post_detail.dart';
 import 'package:mobile_final/widgets/post_edit.dart';
 
 void main() {
