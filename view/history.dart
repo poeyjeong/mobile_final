@@ -50,13 +50,21 @@ class _HistoryPageState extends State<HistoryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 102, 19, 211),
-        centerTitle: true,
-        title: const Text(
-          "ประวัติของคุณ",
-          style: TextStyle(fontSize: 24, color: Colors.white),
-        ),
+  backgroundColor: const Color.fromRGBO(0, 105, 20, 1.0),
+  centerTitle: true,
+  title: Container(
+    margin: const EdgeInsets.only(bottom: 15.0), // เว้นขอบล่าง
+    child: const Text(
+      "ประวัติของคุณ",
+      style: TextStyle(
+        fontSize: 24,
+        fontWeight: FontWeight.bold,
+        color: Color.fromRGBO(218, 137, 146, 1.0),
       ),
+    ),
+  ),
+),
+
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
           : PostList(
@@ -70,7 +78,8 @@ class _HistoryPageState extends State<HistoryPage> {
         onPressed: () {
           Navigator.pushNamed(context, '/postcreate'); // Navigate to NewPostPage
         },
-        backgroundColor: const Color.fromARGB(255, 102, 19, 211),
+        backgroundColor: const Color.fromRGBO(0, 105, 20, 1.0),
+        foregroundColor: const Color.fromRGBO(218,137,146, 1.0), // สี +
         child: const Icon(Icons.add),
       ),
     );
