@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_final/models/config.dart';
 import 'package:mobile_final/models/post_model.dart';
 import 'package:mobile_final/widgets/comment.dart';
+import 'package:mobile_final/widgets/post_delete.dart';
 import 'package:mobile_final/widgets/post_stat.dart';
 import 'package:http/http.dart' as http;
 
@@ -97,6 +98,7 @@ class _PostDetailsPageState extends State<PostDetailsPage> {
                 _addComment(comment);
               },
             ),
+            PostDelete(post: widget.post),
           ],
         ),
       ),
