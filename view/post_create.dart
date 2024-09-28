@@ -46,14 +46,14 @@ class _PostCreatePageState extends State<PostCreatePage> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.close), // Change back button to cross
+          icon: const Icon(Icons.close, color: Colors.white), // Set close icon color to white
           onPressed: () => Navigator.pop(context), // Go back on press
         ),
         title: const Text(''), // Empty title to remove default title
-        backgroundColor: Colors.purple[200], // Set AppBar background color to light purple
+        backgroundColor: const Color.fromRGBO(0, 105, 20, 1.0), // Set AppBar background color
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 16.0), // Add padding to the right
+            padding: const EdgeInsets.only(right: 16.0),
             child: PostActionButton(onPressed: _createPost), // New Post button
           ),
         ],
