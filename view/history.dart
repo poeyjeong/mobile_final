@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:mobile_final/models/post_model.dart';
 import 'package:mobile_final/view/app_bar.dart';
 import 'package:mobile_final/models/config.dart';
-import 'package:mobile_final/widgets/post_stat.dart';
+import 'package:mobile_final/widgets/post_list.dart';
 
 class HistoryPage extends StatefulWidget {
   const HistoryPage({super.key});
@@ -36,12 +36,6 @@ class _HistoryPageState extends State<HistoryPage> {
     }
   }
 
-  void _goBackToHome() {
-    Navigator.pushNamed(context, '/').then((_) {
-      _fetchPosts();
-    });
-  }
-
   @override
   void initState() {
     super.initState();
@@ -51,41 +45,13 @@ class _HistoryPageState extends State<HistoryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text("Plum's Posts")),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
-          : PostList(posts: _posts),
+          : PostList(posts: _posts, isHistoryPage: true), // เรียกใช้ PostList
       bottomNavigationBar: const MyBottomNavigationBar(
         currentIndex: 1,
       ),
-    );
-  }
-}
-
-// post_list.dart
-class PostList extends StatelessWidget {
-  final List<Post> posts;
-
-  const PostList({super.key, required this.posts});
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.separated(
-      itemCount: posts.length,
-      separatorBuilder: (context, index) => const Divider(),
-      itemBuilder: (context, index) {
-        final post = posts[index];
-        return ListTile(
-          title: Text(post.title),
-          subtitle: PostStats(post: post),
-          onTap: () {
-            Navigator.pushNamed(
-              context,
-              '/postdetails',
-              arguments: {'post': post},
-            );
-          },
-        );
-      },
     );
   }
 }
