@@ -1,11 +1,12 @@
-// post_list.dart
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http; // Importing the http package
+import 'package:mobile_final/models/config.dart';
 import 'package:mobile_final/models/post_model.dart';
 import 'package:mobile_final/widgets/post_stat.dart';
 
 class PostList extends StatelessWidget {
   final List<Post> posts;
-  final bool isHistoryPage; // เอาไว้บอกว่า อยู่ในหน้า History ไหม
+  final bool isHistoryPage; // เอาไว้บอกว่าอยู่ในหน้า History ไหม
 
   const PostList({
     super.key,
@@ -24,11 +25,23 @@ class PostList extends StatelessWidget {
           title: Text(post.title),
           subtitle: PostStats(post: post),
           trailing: isHistoryPage
-            ? IconButton(
-                  icon: Icon(Icons.edit),
-                  onPressed: () {
-                    // ฟังก์ชันแก้ไขเฉพาะใน HistoryPage
-                  },
+              ? Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    IconButton(
+                      icon: Icon(Icons.edit),
+                      onPressed: () {
+                        // ฟังก์ชันแก้ไขเฉพาะใน HistoryPage
+                      },
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.delete),
+                      onPressed: () {
+                        // ฟังก์ชันลบโพสต์
+                        _confirmDelete(context, post);
+                      },
+                    ),
+                  ],
                 )
               : null, // ถ้าไม่ใช่ HistoryPage จะไม่มีปุ่มแก้ไข
           onTap: () {
@@ -41,5 +54,52 @@ class PostList extends StatelessWidget {
         );
       },
     );
+  }
+
+  void _confirmDelete(BuildContext context, Post post) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text("ยืนยันการลบ"),
+          content: const Text("คุณแน่ใจว่าต้องการลบโพสต์นี้หรือไม่?"),
+          actions: [
+            TextButton(
+              child: const Text("ยกเลิก"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: const Text("ลบ"),
+              onPressed: () {
+                // Call the delete function with just the post
+                _deletePost(context, post);
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _deletePost(BuildContext context, Post post) async {
+    final url = Uri.http(Configure.server, "/posts/${post.id}");
+    final response = await http.delete(url); // Ensure http is imported
+
+    if (response.statusCode == 200) {
+      // Successfully deleted
+      print("Post deleted successfully");
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Post deleted successfully")),
+      );
+    } else {
+      // Handle the error
+      print("Failed to delete post: ${response.statusCode}, ${response.body}");
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Failed to delete post")),
+      );
+    }
   }
 }
