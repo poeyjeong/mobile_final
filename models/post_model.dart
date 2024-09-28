@@ -50,19 +50,23 @@ class Post {
 class Comment {
   String author;
   String content;
+  String? postId;
 
   Comment({
     required this.author,
     required this.content,
+    this.postId, required String ,
   });
 
   factory Comment.fromJson(Map<String, dynamic> json) => Comment(
     author: json["author"],
     content: json["content"],
+    postId: json["postId"], String: null,
   );
 
   Map<String, dynamic> toJson() => {
     "author": author,
     "content": content,
+    "postId": postId,
   };
 }
