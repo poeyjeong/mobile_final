@@ -1,7 +1,6 @@
 // main.dart
 import 'package:flutter/material.dart';
 import 'package:mobile_final/models/post_model.dart';
-import 'package:mobile_final/view/app_bar.dart';
 import 'package:mobile_final/view/history.dart';
 import 'package:mobile_final/view/home.dart';
 import 'package:mobile_final/view/post.dart';
@@ -21,15 +20,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Anonymous Posts App',
       initialRoute: '/',
-      builder: (context, child) {
-        return Scaffold(
-          appBar: const PreferredSize(
-            preferredSize: Size.fromHeight(56), // กำหนดความสูงของ app bar
-            child: MyAppBar(), // ใช้ MyAppBar ในทุกหน้า
-          ),
-          body: child,
-        );
-      },
       routes: {
         '/': (context) => const HomePage(),
         '/post': (context) => const NewPostPage(),
