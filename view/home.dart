@@ -1,3 +1,4 @@
+// home_page.dart
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:mobile_final/models/post_model.dart';
@@ -5,7 +6,6 @@ import 'package:mobile_final/view/app_bar.dart';
 import 'package:mobile_final/widgets/post_list.dart';
 import 'package:mobile_final/models/config.dart';
 
-// home_page.dart
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -51,12 +51,17 @@ class _HomePageState extends State<HomePage> {
     _fetchPosts();
   }
 
+  void _handlePostDeleted() {
+    _fetchPosts(); // Refresh post หลังกดลบ
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: const Text("All Posts")),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
-          : PostList(posts: _posts, isHistoryPage: false),
+          : PostList(posts: _posts, isHistoryPage: false, onPostDeleted: _handlePostDeleted), // Pass the callback
       bottomNavigationBar: const MyBottomNavigationBar(
         currentIndex: 0,
       ),
