@@ -1,4 +1,3 @@
-// post_action_button.dart
 import 'package:flutter/material.dart';
 
 class PostActionButton extends StatelessWidget {
@@ -10,6 +9,10 @@ class PostActionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: const Color.fromRGBO(218, 137, 146, 1.0), // Change button color
+        foregroundColor: Colors.white, // Change text color to white
+      ),
       child: const Text('Post'),
     );
   }
