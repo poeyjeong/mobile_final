@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:mobile_final/models/config.dart';
 import 'package:mobile_final/models/post_model.dart';
+import 'package:mobile_final/widgets/post_edit.dart';
 import 'package:mobile_final/widgets/post_stat.dart';
 
 class PostList extends StatelessWidget {
@@ -31,13 +32,19 @@ class PostList extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     IconButton(
-                      icon: Icon(Icons.edit),
+                      icon: const Icon(Icons.edit),
                       onPressed: () {
-                        // ฟังก์ชันแก้ไขเฉพาะใน HistoryPage
+                        // นำทางไปยัง PostEditPage
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => PostEditPage(post: post),
+                          ),
+                        );
                       },
                     ),
                     IconButton(
-                      icon: Icon(Icons.delete),
+                      icon: const Icon(Icons.delete),
                       onPressed: () {
                         // ฟังก์ชันลบโพสต์
                         _confirmDelete(context, post);
