@@ -7,11 +7,13 @@ import 'package:mobile_final/widgets/post_stat.dart';
 class PostList extends StatelessWidget {
   final List<Post> posts;
   final bool isHistoryPage; // เอาไว้บอกว่าอยู่ในหน้า History ไหม
+  final Function() onPostDeleted;
 
   const PostList({
     super.key,
     required this.posts,
     required this.isHistoryPage,
+    required this.onPostDeleted,
   });
 
   @override
@@ -86,14 +88,15 @@ class PostList extends StatelessWidget {
 
   void _deletePost(BuildContext context, Post post) async {
     final url = Uri.http(Configure.server, "/posts/${post.id}");
-    final response = await http.delete(url); // Ensure http is imported
+    final response = await http.delete(url);
 
     if (response.statusCode == 200) {
-      // Successfully deleted
+      // เมื่อลบสำเร็จ
       print("Post deleted successfully");
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text("Post deleted successfully")),
       );
+      onPostDeleted();
     } else {
       // Handle the error
       print("Failed to delete post: ${response.statusCode}, ${response.body}");
