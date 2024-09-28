@@ -63,7 +63,10 @@ class _PostEditPageState extends State<PostEditPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const BackButton(), // Back button on the left
+        leading: IconButton(
+          icon: const Icon(Icons.close), // Change back button to cross
+          onPressed: () => Navigator.pop(context), // Go back on press
+        ),
         title: const Text(''), // Empty title to remove default title
         backgroundColor: Colors.purple[200], // Set AppBar background color
         actions: [
