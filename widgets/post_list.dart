@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http; // Importing the http package
+import 'package:http/http.dart' as http;
 import 'package:mobile_final/models/config.dart';
 import 'package:mobile_final/models/post_model.dart';
 import 'package:mobile_final/widgets/post_stat.dart';
