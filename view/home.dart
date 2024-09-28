@@ -58,9 +58,19 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 102, 19, 211),
+        title: const Text(
+          "Hello Plum :)",
+          style: TextStyle(fontSize: 24, color: Colors.white),
+        ),
+      ),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
-          : PostList(posts: _posts, isHistoryPage: false, onPostDeleted: _handlePostDeleted), // Pass the callback
+          : PostList(
+              posts: _posts, 
+              isHistoryPage: false, 
+              onPostDeleted: _handlePostDeleted), // Pass the callback
       bottomNavigationBar: const MyBottomNavigationBar(
         currentIndex: 0,
       ),
