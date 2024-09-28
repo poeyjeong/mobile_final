@@ -5,32 +5,41 @@ import 'package:mobile_final/models/config.dart';
 import 'package:http/http.dart' as http;
 import 'package:mobile_final/models/post_model.dart';
 
-class PostEditorPage extends StatefulWidget {
-  const PostEditorPage({super.key, required post});
+class PostEditPage extends StatefulWidget {
+  final Post post;
+
+  const PostEditPage({super.key, required this.post});
 
   @override
-  _PostEditorPageState createState() => _PostEditorPageState();
+  _PostEditPageState createState() => _PostEditPageState();
 }
 
-class _PostEditorPageState extends State<PostEditorPage> {
-  final List<Post> _posts = []; // Assume you have some posts to edit
-  // Add your editing logic here
+class _PostEditPageState extends State<PostEditPage> {
+  final _titleController = TextEditingController();
 
-  Future<void> _savePosts() async {
-    String jsonData = postsToJson(_posts);
+  @override
+  void initState() {
+    super.initState();
+    _titleController.text = widget.post.title;
+  }
 
-    final response = await http.post(
-      Uri.parse('http://${Configure.server}/update_posts'),
-      headers: <String, String>{
-        'Content-Type': 'application/json; charset=UTF-8',
+  Future<void> _updatePost() async {
+    final url = Uri.parse('http://${Configure.server}/posts/${widget.post.id}');
+    final response = await http.put(
+      url,
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
       },
-      body: utf8.encode(jsonData),
+      body: jsonEncode({
+        'title': _titleController.text,
+      }),
     );
 
     if (response.statusCode == 200) {
-      // Handle successful update
+      Navigator.pop(context);
+      Navigator.pushNamed(context, '/history');
     } else {
-      // Handle error
+      print('Failed to update post');
     }
   }
 
@@ -38,12 +47,25 @@ class _PostEditorPageState extends State<PostEditorPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Post Editor'),
+        title: const Text('แก้ไขโพสต์'),
       ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: _savePosts,
-          child: const Text('Save Posts'),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            TextField(
+              controller: _titleController,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'ชื่อโพสต์',
+              ),
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: _updatePost,
+              child: const Text('แก้ไขโพสต์'),
+            ),
+          ],
         ),
       ),
     );
