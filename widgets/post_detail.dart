@@ -4,16 +4,34 @@ import 'package:flutter/material.dart';
 import 'package:mobile_final/models/config.dart';
 import 'package:mobile_final/models/post_model.dart';
 import 'package:mobile_final/widgets/comment.dart';
+import 'package:mobile_final/widgets/post_delete.dart';
 import 'package:mobile_final/widgets/post_stat.dart';
 import 'package:http/http.dart' as http;
 
-class PostDetailsPage extends StatefulWidget {
+class PostDelete extends StatelessWidget {
   final Post post;
 
-  const PostDetailsPage({super.key, required this.post});
+  const PostDelete({super.key, required this.post});
 
   @override
-  _PostDetailsPageState createState() => _PostDetailsPageState();
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: const Icon(Icons.delete),
+      onPressed: () async {
+        final url = Uri.http(Configure.server, "/posts/${post.id}");
+        final response = await http.delete(url);
+
+        if (response.statusCode == 200) {
+          Navigator.pushNamed(context, '/history');
+        } else {
+          print("Failed to delete post: ${response.statusCode}");
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text("Failed to delete post")),
+          );
+        }
+      },
+    );
+  }
 }
 
 class _PostDetailsPageState extends State<PostDetailsPage> {
