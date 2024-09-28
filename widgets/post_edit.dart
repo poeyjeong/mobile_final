@@ -1,9 +1,9 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:mobile_final/models/config.dart';
 import 'package:http/http.dart' as http;
 import 'package:mobile_final/models/post_model.dart';
+import 'package:mobile_final/widgets/post_action_button.dart';
 
 class PostEditPage extends StatefulWidget {
   final Post post;
@@ -25,23 +25,21 @@ class _PostEditPageState extends State<PostEditPage> {
 
   Future<void> _updatePost() async {
     final url = Uri.parse('http://${Configure.server}/posts/${widget.post.id}');
-    final response = await http.get(url); // ดึงข้อมูลโพสต์เดิมจากเซิร์ฟเวอร์
+    final response = await http.get(url); // Fetch existing post data from server
 
     if (response.statusCode == 200) {
-      // แปลงข้อมูลโพสต์ที่ดึงมา
       final Map<String, dynamic> existingPost = jsonDecode(response.body);
 
-      // สร้าง Map ใหม่ที่อัปเดตเฉพาะ title
+      // Create a new Map with updated title
       final updatedPost = {
         'id': existingPost['id'],
-        'title': _titleController.text, // อัปเดตเฉพาะ title ที่เหลือเป็นค่าเดิม
+        'title': _titleController.text,
         'author': existingPost['author'],
         'comments': existingPost['comments'],
         'likes': existingPost['likes'],
         'dislikes': existingPost['dislikes'],
       };
 
-      // ส่งข้อมูลที่แก้ไขกลับไปที่เซิร์ฟเวอร์
       final updateResponse = await http.put(
         url,
         headers: {
@@ -65,23 +63,32 @@ class _PostEditPageState extends State<PostEditPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('แก้ไขโพสต์'),
+        leading: const BackButton(), // Back button on the left
+        title: const Text(''), // Empty title to remove default title
+        backgroundColor: Colors.purple[200], // Set AppBar background color
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 16.0),
+            child: PostActionButton(onPressed: _updatePost), // Update Post button
+          ),
+        ],
       ),
-      body: Padding(
+      body: Container(
+        color: Colors.white, // Set body background color to white
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             TextField(
               controller: _titleController,
+              maxLines: 3, // Allow multiline input
               decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'ชื่อโพสต์',
+                border: InputBorder.none, // Remove border
+                filled: true, // Fill color
+                fillColor: Colors.white, // Set TextField background color
+                hintText: 'แก้ไขชื่อโพสต์ของคุณที่นี่',
+                hintStyle: TextStyle(color: Colors.grey), // Hint style
               ),
-            ),
-            const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: _updatePost,
-              child: const Text('แก้ไขโพสต์'),
+              textAlign: TextAlign.left,
             ),
           ],
         ),
