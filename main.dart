@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_final/models/post_model.dart';
 import 'package:mobile_final/view/history.dart';
 import 'package:mobile_final/view/home.dart';
-import 'package:mobile_final/view/post.dart';
+import 'package:mobile_final/widgets/post_create.dart';
 import 'package:mobile_final/widgets/post_detail.dart';
 import 'package:mobile_final/widgets/post_edit.dart';
 
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const HomePage(),
-        '/post': (context) => const NewPostPage(),
+        '/postcreate': (context) => const PostCreatePage(),
         '/postdetails': (context) => _buildPostDetailsPage(context),
         '/postedit': (context) => _buildPostEditPage(context),
       },
