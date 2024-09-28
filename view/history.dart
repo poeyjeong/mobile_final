@@ -66,6 +66,13 @@ class _HistoryPageState extends State<HistoryPage> {
       bottomNavigationBar: const MyBottomNavigationBar(
         currentIndex: 1,
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushNamed(context, '/postcreate'); // Navigate to NewPostPage
+        },
+        backgroundColor: const Color.fromARGB(255, 102, 19, 211),
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }
