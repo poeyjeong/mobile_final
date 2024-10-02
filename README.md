@@ -1,3 +1,6 @@
+## Project Overview
+This project is a mobile application built using Flutter. It allows users to create, view, and delete posts. The application uses a local JSON server to store data temporarily. Users can view the details of each post and delete posts as needed.
+
 ## Android Studio
 1. Click ที่ **More Actions** เลือก **SDK Manager**
 2. Click ที่ **SDK Tools** และโหลด Android SDK Command-line Tools (lastest)
